@@ -19,7 +19,7 @@ interface FetGamesResponse {
   count: number;
   results: Game[];
 }
-const UseGames = () => {
+const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +36,7 @@ const UseGames = () => {
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);
-        setIsLoading(false)
+        setIsLoading(false);
       });
     return () => {
       //cleanup function
@@ -45,7 +45,7 @@ const UseGames = () => {
     };
   }, []);
 
-  return { games, error,isLoading };
+  return { games, error, isLoading };
 };
 
-export default UseGames;
+export default useGames;
