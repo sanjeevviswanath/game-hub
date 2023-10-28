@@ -21,15 +21,12 @@ const GameGrid = ({ selectedGenre }: Props) => {
       {error && <Text>{error}</Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
-        padding={5}
+        padding="10px"
         spacing={3}
-        justifyContent={"left"}
-        alignContent={"center"}
-        alignSelf={"center"}
       >
         {isLoading &&
-          skeletons.map((skeleton, index) => (
-            <GameCardContainer key={index}>
+          skeletons.map((skeleton) => (
+            <GameCardContainer key={skeleton}>
               <GameCardSkeleton />
             </GameCardContainer>
           ))}
