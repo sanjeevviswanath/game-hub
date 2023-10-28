@@ -1,5 +1,4 @@
 import { HStack, Switch, Text, useColorMode } from "@chakra-ui/react";
-
 const ColorModeSwitch = () => {
   const { toggleColorMode, colorMode } = useColorMode();
   return (
@@ -9,7 +8,9 @@ const ColorModeSwitch = () => {
         onChange={toggleColorMode}
         colorScheme="green"
       />
-      <Text>Dark Mode</Text>
+      <Text fontWeight={"thin"} fontStyle={"initial"} fontSize={"smaller"}>
+        Dark Mode
+      </Text>
     </HStack>
   );
 };
