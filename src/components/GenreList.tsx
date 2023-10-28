@@ -8,6 +8,7 @@ import {
   ListItem,
   Spinner,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url-crop";
 interface Props {
@@ -28,15 +29,35 @@ const GenreList = ({ onSelectedGenre }: Props) => {
               borderRadius={8}
               src={getCroppedImageUrl(genre.image_background)}
             />
-            <Button
-              onClick={() => {
-                onSelectedGenre(genre);
-              }}
-              fontSize="lg"
-              variant={"link"}
-            >
-              {genre.name}
-            </Button>
+            {genre.name.length > 12 ? (
+              <Tooltip
+                label={genre.name}
+                hasArrow
+                placement="top"
+                bg="gray.800"
+                color="white"
+              >
+                <Button
+                  onClick={() => {
+                    onSelectedGenre(genre);
+                  }}
+                  fontSize="lg"
+                  variant={"link"}
+                >
+                  {`${genre.name.slice(0, 10)}...`}
+                </Button>
+              </Tooltip>
+            ) : (
+              <Button
+                onClick={() => {
+                  onSelectedGenre(genre);
+                }}
+                fontSize="lg"
+                variant={"link"}
+              >
+                {genre.name}
+              </Button>
+            )}
           </HStack>
         </ListItem>
       ))}
