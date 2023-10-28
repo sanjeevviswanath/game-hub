@@ -13,16 +13,21 @@ import {
 import getCroppedImageUrl from "../services/image-url-crop";
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectedGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
   if (error) return null;
   if (isLoading) return <Spinner />;
   return (
     <List>
       {data.map((genre) => (
-        <ListItem key={genre.id} paddingY="5px">
+        <ListItem
+          key={genre.id}
+          paddingY="5px"
+          //bg={genre.id === selectedGenre?.id ? "black" : ""}
+        >
           <HStack>
             <Image
               boxSize="32px"
@@ -33,11 +38,14 @@ const GenreList = ({ onSelectedGenre }: Props) => {
               <Tooltip
                 label={genre.name}
                 hasArrow
-                placement="top"
-                bg="gray.800"
-                color="white"
+                placement="auto"
+                bg="gray.900"
+                color="gray"
               >
                 <Button
+                  fontWeight={
+                    genre.id === selectedGenre?.id ? "bold" : "normal"
+                  }
                   onClick={() => {
                     onSelectedGenre(genre);
                   }}
@@ -49,6 +57,8 @@ const GenreList = ({ onSelectedGenre }: Props) => {
               </Tooltip>
             ) : (
               <Button
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                // bg={genre.id === selectedGenre?.id ? "tomato" : ""}
                 onClick={() => {
                   onSelectedGenre(genre);
                 }}
