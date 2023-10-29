@@ -33,7 +33,7 @@ function App() {
       <GridItem area={"nav"}>
         <NavBar></NavBar>
       </GridItem>
-      <Show above="sm">
+      <Show above="lg">
         <GridItem area={"aside"} paddingX={5}>
           <GenreList
             selectedGenre={gameQuery.genre}
