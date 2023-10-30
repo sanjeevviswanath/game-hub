@@ -8,7 +8,12 @@ const ColorModeSwitch = () => {
         onChange={toggleColorMode}
         colorScheme="green"
       />
-      <Text fontWeight={"thin"} fontStyle={"initial"} fontSize={"smaller"}>
+      <Text
+        whiteSpace={"nowrap"}
+        fontWeight={"thin"}
+        fontStyle={"initial"}
+        fontSize={"smaller"}
+      >
         Dark Mode
       </Text>
     </HStack>
