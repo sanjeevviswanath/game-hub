@@ -25,6 +25,7 @@ const useGames = (gameQuery: GameQuery) =>
         search: gameQuery.searchText,
       },
     },
+
     [gameQuery]
   );
 

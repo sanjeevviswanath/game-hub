@@ -7,9 +7,9 @@ const CriticScore = ({ score }: Props) => {
   return (
     <Badge
       colorScheme={criticColor}
-      fontSize={14}
+      fontSize="14px"
       paddingX={2}
-      borderRadius={4}
+      borderRadius="4px"
     >
       {score}
     </Badge>
